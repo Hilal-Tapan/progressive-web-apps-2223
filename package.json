@@ -1,0 +1,29 @@
+{
+  "name": "progressive-web-apps-2223",
+  "version": "1.0.0",
+  "description": "backend toevoegen aan web",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hilal-Tapan/progressive-web-apps-2223.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "hilal tapan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hilal-Tapan/progressive-web-apps-2223/issues"
+  },
+  "homepage": "https://github.com/Hilal-Tapan/progressive-web-apps-2223#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
