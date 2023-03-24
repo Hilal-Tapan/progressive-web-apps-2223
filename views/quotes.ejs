@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+
+<body>
+<header>
+    <%- include('partials/header.ejs'); %>
+</header>
+
+<main>
+    <ul>
+        <% data.forEach(function(quote){ %>
+          <li><%- quote.quote %></li>
+        <% }); %>
+      </ul>
+</main>
+
+
+<footer>
+    <%- include('partials/footer.ejs'); %>
+</footer>
+    
+</body>

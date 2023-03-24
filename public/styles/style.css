@@ -1,0 +1,377 @@
+/*--------------------------------------------------- ROOT --------------------------------------------------------*/
+:root {
+    --background-color-home: #484848;
+    --background-color-about: yellow;
+    --footer: white;
+
+    --text-home: white;
+    --text-about: black;
+    --nav-text: white;
+    --nav-fontsize: 1.3em;
+    --button-color: #7BB3F4;
+
+    --cirkel-lichtgrijs: #BFBEBC;
+    --cirkel-geel: #FFFF33;
+    --cirkel-donkergrijs: #676566;
+    --inline-shadow: pink;
+    --drop-shadow: black;
+}
+
+
+
+@import url('https://fonts.cdnfonts.com/css/soulcraft');
+/*bron font: https://www.cdnfonts.com/soulcraft.font */
+
+/*-------------------------------------------------- STYLING ----------------------------------------------------*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color-home);
+}
+
+main {
+    height: 170vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+header {
+    background: none;
+    padding: 1em 0 0 1em;
+}
+
+/*---------------------------------------------- navigation -------------------------------------------------------*/
+nav {
+    position: absolute;
+    top: 2vw;
+    right: 5vw;
+    z-index: 10000;
+}
+
+nav ul {
+    display: flex;
+    margin-top: 2em;
+}
+
+nav ul li {
+    list-style: none;
+    border-bottom: solid .2em var(--background-color-about);
+    padding: 0 1em 0 1em;
+}
+
+nav ul li:hover {
+    border: solid .2em var(--background-color-about);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-size: var(--nav-fontsize);
+    font-family: Arial;
+}
+
+
+/*---------------------------------------------- background cirkels -----------------------------------------------*/
+main > ul {
+    margin: 0;
+}
+
+main > ul li {
+    position: fixed;
+    list-style: none;
+    width: 3em;
+    height: 3em;
+    border-radius: 3em;
+    box-shadow: inset 1em 1em 1em var(--inline-shadow),
+        0 8px 6px -6px var(--drop-shadow);
+}
+
+main > ul li:nth-of-type(1) {
+    width: 18em;
+    height: 18em;
+    border-radius: 15em;
+    background-color: var(--cirkel-lichtgrijs);
+    top: 3em;
+    right: -6em;
+    animation-name: cirkel1;
+    transition-timing-function: ease-in-out;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+@keyframes cirkel1 {
+    0% {
+        transform: translateX(0%) translateY(0%);
+    }
+
+    50% {
+        transform: translateX(-70%) translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(0%) translateY(0%);
+    }
+}
+
+main > ul li:nth-of-type(2) {
+    width: 15em;
+    height: 15em;
+    border-radius: 10em;
+    background-color: var(--cirkel-donkergrijs);
+    top: -4em;
+    right: -4em;
+}
+
+main > ul li:nth-of-type(3) {
+    width: 13em;
+    height: 13em;
+    border-radius: 13em;
+    background-color: var(--cirkel-lichtgrijs);
+    top: 28em;
+    right: -5em;
+}
+
+main > ul li:nth-of-type(4) {
+    width: 8em;
+    height: 8em;
+    border-radius: 8em;
+    background-color: var(--cirkel-geel);
+    top: 25em;
+    right: -3em;
+    animation-name: cirkel2;
+    transition-timing-function: ease-in-out;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes cirkel2 {
+    0% {
+        transform: translateX(0%) translateY(0%);
+    }
+
+    50% {
+        transform: translateX(00%) translateY(100%);
+    }
+
+    100% {
+        transform: translateX(0%) translateY(0%);
+    }
+}
+
+main > ul li:nth-of-type(5) {
+    width: 6em;
+    height: 6em;
+    border-radius: 6em;
+    background-color: var(--cirkel-geel);
+    left: -3em;
+    top: 19em;
+    animation-name: cirkel3;
+    transition-timing-function: ease-in-out;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes cirkel3 {
+    0% {
+        transform: translateX(0%) translateY(0%);
+    }
+
+    50% {
+        transform: translateX(20%) translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(0%) translateY(0%);
+    }
+}
+
+main > ul li:nth-of-type(6) {
+    width: 15em;
+    height: 15em;
+    border-radius: 15em;
+    background-color: var(--cirkel-donkergrijs);
+    left: -6em;
+    bottom: -5em;
+}
+
+main > ul li:nth-of-type(7) {
+    width: 7em;
+    height: 7em;
+    border-radius: 7em;
+    background-color: var(--cirkel-geel);
+    left: 4em;
+    bottom: -3em;
+    animation-name: cirkel4;
+    transition-timing-function: ease-in-out;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+@keyframes cirkel4 {
+    0% {
+        transform: translateX(0%) translateY(0%);
+    }
+
+    50% {
+        transform: translateX(90%) translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(0%) translateY(0%);
+    }
+}
+
+
+/*------------------------------------------------- section 1 -----------------------------------------------------*/
+#home {
+    margin-top: 15em;
+    width: 60vw;
+    height: 100vw;
+    padding: 4em 3em 4em 3em;
+    background-color: var(--footer);
+    z-index: 10000;
+    text-align: center;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* margin: 0; */
+    margin-left: 10em;
+}
+
+#home h1 {
+    font-family: Soulcraft;
+    font-size: 3em;
+    letter-spacing: .2em;
+    margin: 0 0 .3em 0;
+    position: absolute;
+    top: 8em;
+}
+
+#home ul {
+    margin-top: 13em;
+
+}
+
+#home ul li {
+    font-size: 2.3em;
+    color: var(--text-about);
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: .8em;
+}
+
+#home ul a {
+    text-decoration: none;
+    color: var(--text-about);
+}
+
+/* section p {
+    font-family: arial;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 0;
+} */
+
+/* section button {
+    width: 60vw;
+    height: 15vw;
+    ;
+    background-color: var(--button-color);
+    border-radius: 3em;
+    color: var(--footer);
+    transform: translateX(19%);
+    margin-top: 2em;
+    border: none;
+    filter: drop-shadow(.2em .1em .2em #676566);
+    font-family: Soulcraft;
+    font-size: 1.2em;
+    letter-spacing: .3em;
+    text-shadow: .15em .1em .1em black;
+} */
+
+/* section button:disabled {
+    background-color: pink;
+} */
+
+/* section img {
+    width: 3em;
+    position: absolute;
+}
+
+section img:nth-of-type(1) {
+    top: 2em;
+    left: 2em;
+    transform: scaleX(-1);
+}
+
+section img:nth-of-type(2) {
+    bottom: 7em;
+    right: 6em;
+    transform: rotate(360deg);
+    transform: scaleY(-1);
+} */
+
+/* #home.active {
+}
+#about.active {
+    color:white;
+}  */
+
+/*------------------------------------------------- section 2 -----------------------------------------------------*/
+/* section:nth-of-type(2) div {
+    width: 60vw;
+    height: 80vw;
+    padding: 4em 3em 4em 3em;
+    background-color: var(--drop-shadow);
+    z-index: 10000;
+    text-align: center;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section:nth-of-type(2) h1 {
+    font-family: Soulcraft;
+    font-size: 2em;
+    letter-spacing: .2em;
+    margin: 0 0 .3em 0;
+    color: var(--footer);
+}
+
+section:nth-of-type(2) p {
+    font-family: arial;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    margin: 0;
+    color: var(--footer);
+} */
+
+/*---------------------------------------------------- footer -------------------------------------------------------*/
+footer {
+    background-color: white;
+    height: 6em;
+    z-index: 10000;
+}
+
+footer ul {
+    display: flex;
+    position: absolute;
+    bottom: 0em;
+    right: 1em;
+}
+
+footer ul li {
+    list-style: none;
+    padding: 0 .5em 0 .5em;
+}
+
+footer img {
+    width: 2.5em;
+}

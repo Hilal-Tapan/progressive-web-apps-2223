@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+
+<body>
+
+    <%- include('partials/header.ejs'); %>
+<main>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <section id="home">
+        
+            <h1>Author</h1>
+            <ul>
+                <% data.forEach(function(quote){ %>
+                    <a href="/quotes/<%= quote.id %>">
+                        <li><%- quote.author %></li>
+                    </a>
+                <% }); %>
+            </ul>
+            <!-- <img src="./images/quote.png" alt="quotation">
+            <img src="./images/quote.png" alt="quotation"> -->
+        
+        <!-- <button>shuffle</button> -->
+    </section>
+</main>
+
+    <%- include('partials/footer.ejs'); %>
+
+</body>
