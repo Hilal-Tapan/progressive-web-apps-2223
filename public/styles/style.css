@@ -7,7 +7,7 @@
     --text-home: white;
     --text-about: black;
     --nav-text: white;
-    --nav-fontsize: 1.3em;
+    --nav-fontsize: 3em;
     --button-color: #7BB3F4;
 
     --cirkel-lichtgrijs: #BFBEBC;
@@ -17,13 +17,10 @@
     --drop-shadow: black;
 }
 
-
-
 @import url('https://fonts.cdnfonts.com/css/soulcraft');
 /*bron font: https://www.cdnfonts.com/soulcraft.font */
 
 /*-------------------------------------------------- STYLING ----------------------------------------------------*/
-
 body {
     margin: 0;
     padding: 0;
@@ -39,8 +36,12 @@ main {
 header {
     background: none;
     padding: 1em 0 0 1em;
+    height: 5em;
 }
 
+header img {
+    width: 8em;
+}
 /*---------------------------------------------- navigation -------------------------------------------------------*/
 nav {
     position: absolute;
@@ -88,8 +89,8 @@ main > ul li {
 }
 
 main > ul li:nth-of-type(1) {
-    width: 18em;
-    height: 18em;
+    width: 25em;
+    height: 25em;
     border-radius: 15em;
     background-color: var(--cirkel-lichtgrijs);
     top: 3em;
@@ -116,8 +117,8 @@ main > ul li:nth-of-type(1) {
 }
 
 main > ul li:nth-of-type(2) {
-    width: 15em;
-    height: 15em;
+    width: 23em;
+    height: 23em;
     border-radius: 10em;
     background-color: var(--cirkel-donkergrijs);
     top: -4em;
@@ -125,8 +126,8 @@ main > ul li:nth-of-type(2) {
 }
 
 main > ul li:nth-of-type(3) {
-    width: 13em;
-    height: 13em;
+    width: 19em;
+    height: 19em;
     border-radius: 13em;
     background-color: var(--cirkel-lichtgrijs);
     top: 28em;
@@ -134,8 +135,8 @@ main > ul li:nth-of-type(3) {
 }
 
 main > ul li:nth-of-type(4) {
-    width: 8em;
-    height: 8em;
+    width: 15em;
+    height: 15em;
     border-radius: 8em;
     background-color: var(--cirkel-geel);
     top: 25em;
@@ -161,8 +162,8 @@ main > ul li:nth-of-type(4) {
 }
 
 main > ul li:nth-of-type(5) {
-    width: 6em;
-    height: 6em;
+    width: 13em;
+    height: 13em;
     border-radius: 6em;
     background-color: var(--cirkel-geel);
     left: -3em;
@@ -188,8 +189,8 @@ main > ul li:nth-of-type(5) {
 }
 
 main > ul li:nth-of-type(6) {
-    width: 15em;
-    height: 15em;
+    width: 23em;
+    height: 23em;
     border-radius: 15em;
     background-color: var(--cirkel-donkergrijs);
     left: -6em;
@@ -197,8 +198,8 @@ main > ul li:nth-of-type(6) {
 }
 
 main > ul li:nth-of-type(7) {
-    width: 7em;
-    height: 7em;
+    width: 14em;
+    height: 14em;
     border-radius: 7em;
     background-color: var(--cirkel-geel);
     left: 4em;
@@ -225,14 +226,15 @@ main > ul li:nth-of-type(7) {
 }
 
 
-/*------------------------------------------------- section 1 -----------------------------------------------------*/
+/*------------------------------------------------- index  -----------------------------------------------------*/
 #home {
     margin-top: 15em;
     width: 60vw;
-    height: 100vw;
+    height: 110vw;
     padding: 4em 3em 4em 3em;
     background-color: var(--footer);
-    z-index: 10000;
+    z-index: 1000000;
+    position: absolute;
     text-align: center;
     border-radius: 3em;
     display: flex;
@@ -249,7 +251,7 @@ main > ul li:nth-of-type(7) {
     letter-spacing: .2em;
     margin: 0 0 .3em 0;
     position: absolute;
-    top: 8em;
+    top: 3em;
 }
 
 #home ul {
@@ -270,65 +272,22 @@ main > ul li:nth-of-type(7) {
     color: var(--text-about);
 }
 
-/* section p {
-    font-family: arial;
-    font-size: 1.2em;
-    line-height: 1.5em;
-    margin: 0;
-} */
-
-/* section button {
-    width: 60vw;
-    height: 15vw;
-    ;
-    background-color: var(--button-color);
-    border-radius: 3em;
-    color: var(--footer);
-    transform: translateX(19%);
-    margin-top: 2em;
-    border: none;
-    filter: drop-shadow(.2em .1em .2em #676566);
-    font-family: Soulcraft;
-    font-size: 1.2em;
-    letter-spacing: .3em;
-    text-shadow: .15em .1em .1em black;
-} */
-
-/* section button:disabled {
-    background-color: pink;
-} */
-
-/* section img {
-    width: 3em;
-    position: absolute;
+#home ul li:hover {
+    color: pink;
+    text-decoration: underline;
 }
 
-section img:nth-of-type(1) {
-    top: 2em;
-    left: 2em;
-    transform: scaleX(-1);
-}
-
-section img:nth-of-type(2) {
-    bottom: 7em;
-    right: 6em;
-    transform: rotate(360deg);
-    transform: scaleY(-1);
-} */
-
-/* #home.active {
-}
-#about.active {
-    color:white;
-}  */
-
-/*------------------------------------------------- section 2 -----------------------------------------------------*/
-/* section:nth-of-type(2) div {
-    width: 60vw;
+/*------------------------------------------------- quotes -----------------------------------------------------*/
+#quotes {
+    margin-top: 15em;
+    width: 70vw;
     height: 80vw;
     padding: 4em 3em 4em 3em;
-    background-color: var(--drop-shadow);
-    z-index: 10000;
+    background-color: var(--footer);
+    z-index: 1000000;
+    position: absolute;
+    top: 10em;
+    left: 6em;
     text-align: center;
     border-radius: 3em;
     display: flex;
@@ -337,41 +296,64 @@ section img:nth-of-type(2) {
     justify-content: center;
 }
 
-section:nth-of-type(2) h1 {
-    font-family: Soulcraft;
-    font-size: 2em;
-    letter-spacing: .2em;
-    margin: 0 0 .3em 0;
-    color: var(--footer);
+#quotes ul li {
+    font-size: 3em;
+    color: var(--text-about);
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: .8em;
+    font-family: arial;
 }
 
-section:nth-of-type(2) p {
-    font-family: arial;
-    font-size: 1.2em;
-    line-height: 1.3em;
-    margin: 0;
-    color: var(--footer);
-} */
+/*------------------------------------------------- about -----------------------------------------------------*/
+#about {
+    margin-top: 15em;
+    width: 70vw;
+    height: 100vw;
+    padding: 4em 3em 4em 3em;
+    background-color: var(--footer);
+    z-index: 1000000;
+    position: absolute;
+    top: 10em;
+    left: 6em;
+    text-align: center;
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+#about h1 {
+    font-size: 4em;
+    font-family: Arial;
+}
+
+#about p {
+    font-family: arial;
+    font-size: 3em;
+    line-height: 1.3em;
+}
 /*---------------------------------------------------- footer -------------------------------------------------------*/
 footer {
     background-color: white;
-    height: 6em;
+    height: 21.5em;
     z-index: 10000;
+    
 }
 
-footer ul {
+footer > ul {
     display: flex;
     position: absolute;
     bottom: 0em;
     right: 1em;
 }
 
-footer ul li {
+footer > ul li {
     list-style: none;
     padding: 0 .5em 0 .5em;
 }
 
 footer img {
-    width: 2.5em;
+    width: 8em;
 }
