@@ -5,7 +5,6 @@ const assets = [
     "/public/styles/style.css"
 ]
 
-
 // install service worker
 self.addEventListener("install", (event) => {
 
