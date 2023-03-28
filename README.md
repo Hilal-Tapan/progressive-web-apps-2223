@@ -2,13 +2,9 @@
 
 ![pwa](https://user-images.githubusercontent.com/3104648/28351989-7f68389e-6c4b-11e7-9bf2-e9fcd4977e7a.png)
 
-## Table of Contents
-- [Synopsis](#synopsis)
-- [Description](#description)
-- [Communication](#communication)
-- [Goals](#goals)
-- [Grading](#grading)
-- [Programme](#programme)
+## Live site
+https://hilal-tapan.github.io/progressive-web-apps-2223/ 
+
 
 ## Synopsis
 - Course: Progressive Web Apps
