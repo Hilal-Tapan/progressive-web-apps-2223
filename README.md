@@ -112,6 +112,54 @@ In this example, we're rendering a template file called "template.ejs" and injec
 * ``` <% if (condition) { %> ... <% } %> - execute JavaScript code based on a condition```
 * ``` <% for (var i = 0; i < items.length; i++) { %> ... <% } %> - iterate over an array and execute JavaScript code```
 
+## API 
+The fetching of the api had to be changed a little bit. For this I used AXIOS in stead of REQUEST. This is because request was not working well with this so that is why I used Axios. 
+
+``` javascript
+app.get('/', (req, res) => {
+    let data;
+    axios.get('https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1')
+        .then((response) => {
+            console.log('result', response.data)
+            data = response.data
+            res.render('index', {
+                title: 'Home',
+                data: data
+            });
+
+        }).catch((error) => {
+            console.log('error', error)
+        })
+})
+```
+This is a code snippet that defines a route for an HTTP GET request in a Node.js web application using the Express framework. The route is defined using the app.get() method of an Express application object (app).
+The route's path is set to '/', which means that it will handle requests to the application's root URL.
+The route handler function takes two parameters: req (request) and res (response).
+Within the function, a variable data is declared and assigned to undefined.
+Then, an HTTP GET request is sent to the URL 'https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1' using the Axios library. Axios is a popular library for making HTTP requests in Node.js applications.
+If the request is successful, the response data is logged to the console and assigned to the data variable. Then, the res.render() method is called to render the 'index' view with a title of 'Home' and the data variable passed as an object. This view will be displayed in the user's browser as the response to the HTTP request.
+If the request fails, an error message is logged to the console.
+Overall, this code retrieves data from an external source and passes it to a view to be rendered as a webpage in response to an HTTP GET request.
+
+```javascript 
+app.get('/quotes/:id', (req, res) => {
+    let data;
+    axios.get('https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1')
+      .then((response) => {
+        console.log('result', response.data);
+        data = response.data;
+        const filteredQuotes = data.filter(quote => quote.id === req.params.id); // filter the quotes based on the id parameter
+        res.render('quotes', {
+          title: 'Random Quote',
+          data: filteredQuotes // render only the filtered quotes
+        });
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+  }); 
+```
+Here i used data.filter to filter the quote.id with req.params.id and render these.
 
 ## Synopsis
 - Course: Progressive Web Apps
