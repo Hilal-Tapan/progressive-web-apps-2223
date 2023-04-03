@@ -23,26 +23,26 @@ https://hilal-tapan.github.io/progressive-web-apps-2223/
 
 ## 💻 Installation 💻
 
-### install nvm
+#### install nvm
 1. To install the server you need node and express. You can do that with nvm. Nvm is package installer where you can install different packages. With this code you can install the latest versions of npm and node:
 ```
 nvm install 19.8.1
 ```
 
-### Clone repo
+#### Clone repo
 2. Clone this repository by running:
 ```
 git clone https://github.com/Hilal-Tapan/progressive-web-apps-2223.git
 ```
 
-### NPM install
+#### NPM install
 3. Install the dependencies by running 
 ```
 npm install 
 ```
 to install the dependencies. 
 
-### Start server
+#### Start server
 4. Then run 
 ```
 npm start
@@ -50,7 +50,7 @@ npm start
  to start the development server.
 
 
-## Node.js server
+## 💾 Node.js server 💾
 1. Install Node.js: First, you need to install Node.js on your computer. You can download and install it from the official website.
 
 2. Create a new project: Create a new directory for your project and navigate to it using the command line interface.
@@ -62,13 +62,13 @@ npm start
 5. Create a server file: Create a new file in your project directory called server.js. This file will contain the code for your server.
 
 6. Import Express: In server.js, import Express using the following code:
-```
+```javascript
 const express = require('express');
 const app = express();
 ```
 
 7. Create a route: A route is a function that is executed when a user accesses a specific URL. Create a route using the following code:
-```
+```javascript
 app.get('/', function(req, res) {
   res.send('Hello World!');
 });
@@ -76,13 +76,41 @@ app.get('/', function(req, res) {
 This code creates a route that responds with the text "Hello World!" when a user accesses the root URL.
 
 8. Start the server: Finally, start the server using the following code:
-```
+```javascript
 app.listen(3000, function() {
   console.log('Server started on port 3000');
 });
 ```
 This code starts the server on port 3000 and logs a message to the console.
 
+## 📁 Template engine 📁
+
+EJS (Embedded JavaScript) is a templating engine for Node.js that allows you to embed JavaScript code inside HTML templates to generate dynamic content on the server-side. 
+
+#### Here are the basic steps to using EJS:
+1. Install EJS: First, you need to install EJS in your Node.js project using the npm package manager. You can do this by running the following command in your terminal:
+```
+npm install ejs
+```
+
+2. Create an EJS template: After installing EJS, you need to create an EJS template file. An EJS template file has a ".ejs" file extension and contains HTML markup with embedded JavaScript code. You can use EJS syntax to inject dynamic data into your HTML markup.
+
+3. Render the EJS template: To render an EJS template, you need to use the ejs.render() method. This method takes two arguments: the path to the EJS template file and an object containing the data you want to inject into the template. Here's an example of how to render an EJS template:
+```javascript
+const ejs = require('ejs');
+const data = { name: 'John', age: 30 };
+ejs.renderFile('template.ejs', data, function(err, html) {
+    if (err) throw err;
+    console.log(html);
+});
+```
+In this example, we're rendering a template file called "template.ejs" and injecting an object with two properties (name and age) into the template.
+
+4.  Use EJS syntax: In your EJS template file, you can use EJS syntax to inject dynamic data and execute JavaScript code. Here are some examples of EJS syntax:
+
+* ``` <%= variable %> - inject a variable into the HTML markup ```
+* ``` <% if (condition) { %> ... <% } %> - execute JavaScript code based on a condition```
+* ``` <% for (var i = 0; i < items.length; i++) { %> ... <% } %> - iterate over an array and execute JavaScript code```
 
 
 ## Synopsis
