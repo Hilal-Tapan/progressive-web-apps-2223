@@ -15,7 +15,6 @@ https://hilal-tapan.github.io/progressive-web-apps-2223/
 * CSS3
 * JavaScript
 * Google sheet API
-* SCSS
 * PWA
 * NPM
 * NodeJs
@@ -161,7 +160,34 @@ app.get('/quotes/:id', (req, res) => {
 ```
 Here i used data.filter to filter the quote.id with req.params.id and render these.
 
-## Synopsis
+## Building Tool
+Build tools automate repetitive tasks and optimize workflow once the application is deployed. Build tooling is used mostly :
+
+* to shrink and minimize javascript files.
+* For CSS preprocessor like Sass, less, Stylus.
+* to load images from a source
+* To prerender HTML files
+
+I chose SASS and minify as a building tool for my css. I dont have any javascript other than my server.js so i didn't need any minifier for that. 
+
+Minification is a technique used to reduce the size of a file by removing unnecessary characters and whitespace without changing its functionality. The minify extension is a tool that automates this process for web developers.
+
+When building a website, developers often use libraries and frameworks that contain large amounts of code. This code can include comments, whitespace, and other characters that are not necessary for the code to function. Minification removes these extraneous elements to make the file smaller, which can improve page load times and overall website performance.
+
+The minify extension can be used with a variety of web development languages, including HTML, CSS, and JavaScript. It works by analyzing the code and removing any unnecessary characters, such as white space, comments, and line breaks. This can result in a significant reduction in file size, which can help improve website speed and overall performance.
+
+In addition to reducing file size, minification can also make code harder to read and understand. For this reason, it is important to keep a backup of the original code and use a minification tool that produces readable output or has a "beautify" option to revert the minified code back to its original format if needed.
+
+Overall, the minify extension is a useful tool for web developers looking to improve website performance and reduce page load times.
+
+
+
+## must haves
+* client- server rendering, 
+* an activity diagram including the Service Worker and a list of enhancements to optimize the critical render path implemented your app.
+* Critical render path You’ve enhanced the critical render path for a better runtime or percieved performance in multiple ways and have described how you managed to do this.
+* Service Worker You’ve implemented a usefull Service Worker and show it’s working in an activity diagram.
+
 - Course: Progressive Web Apps
 - Course Coordinator: Justus Sturkenboom ([@ju5tu5](https://github.com/ju5tu5))
 - Minor Coordinator(s): Joost Faber ([@joostf](https://github.com/joostf)) Koop Reynders ([@KoopReynders](https://github.com/KoopReynders))

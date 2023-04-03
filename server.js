@@ -1,5 +1,7 @@
 const express = require('express')
 const axios = require('axios');
+// var minify = require('express-minify');
+
 
 const app = express();
 const port = 3000;
@@ -7,8 +9,24 @@ const port = 3000;
 app.use(express.static('public'));
 app.use('/public', express.static(__dirname + '/public/'));
 
+//minify
+// app.use(minify());
+// app.use(compression());
+// app.use(minify());
+// app.use(express.static(__dirname + '/static'));
+
 //setting view engine to ejs
 app.set("view engine", "ejs");
+
+// app.use(minify({
+//     cache: false,
+//     uglifyJsModule: null,
+//     errorHandler: null,
+//     jsMatch: /javascript/,
+//     cssMatch: /css/,
+//     jsonMatch: /json/,
+//     sassMatch: /scss/
+//   }));
 
 // Home page
 app.get('/', (req, res) => {
