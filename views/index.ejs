@@ -21,7 +21,7 @@
 
     <section id="home">
         
-            <h1>Author</h1>
+            <h1>Authors</h1>
             <ul>
                 <% data.forEach(function(quote){ %>
                     <a href="/quotes/<%= quote.id %>">
@@ -40,3 +40,8 @@
 
 </body>
 
+
+<!-- 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm 
+-->

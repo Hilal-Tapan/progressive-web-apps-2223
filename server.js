@@ -46,7 +46,7 @@ app.get('/quotes/:id', (req, res) => {
   });
   
 
-// About pagina
+// About page
 app.get('/about', (req, res) => {
 
     res.render('about', {

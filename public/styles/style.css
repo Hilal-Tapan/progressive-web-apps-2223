@@ -28,7 +28,7 @@ body {
 }
 
 main {
-    height: 170vw;
+    height: 85vh;
     overflow-x: hidden;
     position: relative;
 }
@@ -89,8 +89,8 @@ main > ul li {
 }
 
 main > ul li:nth-of-type(1) {
-    width: 25em;
-    height: 25em;
+    width: 30em;
+    height: 30em;
     border-radius: 15em;
     background-color: var(--cirkel-lichtgrijs);
     top: 3em;
@@ -126,11 +126,11 @@ main > ul li:nth-of-type(2) {
 }
 
 main > ul li:nth-of-type(3) {
-    width: 19em;
-    height: 19em;
+    width: 30em;
+    height: 30em;
     border-radius: 13em;
     background-color: var(--cirkel-lichtgrijs);
-    top: 28em;
+    top: 47em;
     right: -5em;
 }
 
@@ -139,7 +139,7 @@ main > ul li:nth-of-type(4) {
     height: 15em;
     border-radius: 8em;
     background-color: var(--cirkel-geel);
-    top: 25em;
+    top: 45em;
     right: -3em;
     animation-name: cirkel2;
     transition-timing-function: ease-in-out;
@@ -167,7 +167,7 @@ main > ul li:nth-of-type(5) {
     border-radius: 6em;
     background-color: var(--cirkel-geel);
     left: -3em;
-    top: 19em;
+    top: 30em;
     animation-name: cirkel3;
     transition-timing-function: ease-in-out;
     animation-duration: 30s;
@@ -189,9 +189,9 @@ main > ul li:nth-of-type(5) {
 }
 
 main > ul li:nth-of-type(6) {
-    width: 23em;
-    height: 23em;
-    border-radius: 15em;
+    width: 30em;
+    height: 30em;
+    border-radius: 25em;
     background-color: var(--cirkel-donkergrijs);
     left: -6em;
     bottom: -5em;
@@ -228,13 +228,15 @@ main > ul li:nth-of-type(7) {
 
 /*------------------------------------------------- index  -----------------------------------------------------*/
 #home {
-    margin-top: 15em;
-    width: 60vw;
-    height: 110vw;
+    margin-top: 10em;
+    width: 85vw;
+    height: 68vh;
     padding: 4em 3em 4em 3em;
     background-color: var(--footer);
     z-index: 1000000;
     position: absolute;
+    display: grid;
+    place-content: center;
     text-align: center;
     border-radius: 3em;
     display: flex;
@@ -242,29 +244,37 @@ main > ul li:nth-of-type(7) {
     align-items: center;
     /* justify-content: center; */
     /* margin: 0; */
-    margin-left: 10em;
+    margin-left:1.9em;
 }
 
 #home h1 {
     font-family: Soulcraft;
-    font-size: 3em;
+    font-size: 7em;
     letter-spacing: .2em;
-    margin: 0 0 .3em 0;
+    margin: 0 0 .5em 0;
     position: absolute;
     top: 3em;
 }
 
 #home ul {
     margin-top: 13em;
-
+    padding: 1em;
+    height: 40em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
+
 #home ul li {
-    font-size: 2.3em;
+    font-size: 2.5em;
     color: var(--text-about);
     text-decoration: none;
     list-style: none;
-    margin-bottom: .8em;
+    margin-bottom: 1.5em;
+    /* width: 10em; */
+    padding: 0;
 }
 
 #home ul a {
@@ -307,15 +317,15 @@ main > ul li:nth-of-type(7) {
 
 /*------------------------------------------------- about -----------------------------------------------------*/
 #about {
-    margin-top: 15em;
-    width: 70vw;
-    height: 100vw;
+    margin-top: 10em;
+    width: 85vw;
+    height: 65vh;
     padding: 4em 3em 4em 3em;
     background-color: var(--footer);
     z-index: 1000000;
     position: absolute;
-    top: 10em;
-    left: 6em;
+    top: 3em;
+    left: 1.9em;
     text-align: center;
     border-radius: 3em;
     display: flex;
@@ -325,8 +335,9 @@ main > ul li:nth-of-type(7) {
 }
 
 #about h1 {
-    font-size: 4em;
-    font-family: Arial;
+    font-family: Soulcraft;
+    font-size: 7em;
+    letter-spacing: .2em;
 }
 
 #about p {
@@ -367,9 +378,8 @@ main > ul li:nth-of-type(7) {
 /*---------------------------------------------------- footer -------------------------------------------------------*/
 footer {
     background-color: white;
-    height: 21.5em;
+    height: 15em;
     z-index: 10000;
-    
 }
 
 footer > ul {
@@ -385,5 +395,5 @@ footer > ul li {
 }
 
 footer img {
-    width: 8em;
+    width: 6em;
 }
