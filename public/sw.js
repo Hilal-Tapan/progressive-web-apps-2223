@@ -2,11 +2,11 @@
 const staticCacheName = "site-static"
 const assets = [ 
     "/offline",
-    "/public/styles/style.css",
-    "./images/Middel 1.png",
-    "/images/facebook-logo.png",
-    "/images/twitter-logo.png",
-    "/images/insta-logo.png" 
+    "/public/styles/style.min.css",
+    "./images/Middel-1.webp",
+    "/images/facebook-logo.webp",
+    "/images/twitter-logo.webp",
+    "/images/insta-logo.webp" 
 ]
 
 // install service worker

@@ -1,40 +1,42 @@
 <!DOCTYPE html>
+<title>Your daily web quote</title>
+
 <head>
-    <link rel="stylesheet" type="text/css" href="/public/styles/style.css">
+    <meta name="Your daily web quote">
+    <link rel="stylesheet" type="text/css" href="/public/styles/style.min.css">
     <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4285f4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
 
 <body>
 
     <%- include('partials/header.ejs'); %>
 
-<main>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <main>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
 
-    <section id="home">
-        
+        <section id="home">
+
             <h1>Authors</h1>
             <ul>
                 <% data.forEach(function(quote){ %>
-                    <a href="/quotes/<%= quote.id %>">
-                        <li><%- quote.author %></li>
-                    </a>
+                <li><a href="/quotes/<%= quote.id %>">
+                        <%- quote.author %>
+                    </a></li>
                 <% }); %>
             </ul>
-            <!-- <img src="./images/quote.png" alt="quotation">
-            <img src="./images/quote.png" alt="quotation"> -->
-        
-        <!-- <button>shuffle</button> -->
-    </section>
-</main>
+        </section>
+    </main>
 
     <%- include('partials/footer.ejs'); %>
 

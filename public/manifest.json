@@ -4,8 +4,8 @@
     "scope": "/",
     "start_url": "/index.ejs",
     "display": "standalone",
-    "background-color": "white",
-    "theme_color": "white",
+    "background-color": "rgb(255, 255, 255)",
+    "theme_color": "rgb(255, 255, 255)",
     "orientation": "portrait-primary",
     "icons": [
         {
