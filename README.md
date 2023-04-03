@@ -22,27 +22,66 @@ https://hilal-tapan.github.io/progressive-web-apps-2223/
 * Express
 
 ## 💻 Installation 💻
+
+### install nvm
 1. To install the server you need node and express. You can do that with nvm. Nvm is package installer where you can install different packages. With this code you can install the latest versions of npm and node:
 ```
 nvm install 19.8.1
 ```
 
+### Clone repo
 2. Clone this repository by running:
 ```
 git clone https://github.com/Hilal-Tapan/progressive-web-apps-2223.git
 ```
 
+### NPM install
 3. Install the dependencies by running 
 ```
 npm install 
 ```
 to install the dependencies. 
 
+### Start server
 4. Then run 
 ```
 npm start
 ```
  to start the development server.
+
+
+## Node.js server
+1. Install Node.js: First, you need to install Node.js on your computer. You can download and install it from the official website.
+
+2. Create a new project: Create a new directory for your project and navigate to it using the command line interface.
+
+3. Initialize the project: In the project directory, use the command npm init to initialize the project. This will create a package.json file, which contains information about your project.
+
+4. Install Express: Express is a popular Node.js framework that makes it easy to create web applications. Install it using the command npm install express.
+
+5. Create a server file: Create a new file in your project directory called server.js. This file will contain the code for your server.
+
+6. Import Express: In server.js, import Express using the following code:
+```
+const express = require('express');
+const app = express();
+```
+
+7. Create a route: A route is a function that is executed when a user accesses a specific URL. Create a route using the following code:
+```
+app.get('/', function(req, res) {
+  res.send('Hello World!');
+});
+```
+This code creates a route that responds with the text "Hello World!" when a user accesses the root URL.
+
+8. Start the server: Finally, start the server using the following code:
+```
+app.listen(3000, function() {
+  console.log('Server started on port 3000');
+});
+```
+This code starts the server on port 3000 and logs a message to the console.
 
 
 
