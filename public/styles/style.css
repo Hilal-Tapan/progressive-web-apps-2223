@@ -275,6 +275,8 @@ main > ul li:nth-of-type(7) {
     margin-bottom: 1.5em;
     /* width: 10em; */
     padding: 0;
+    font-family: arial;
+
 }
 
 #home ul a {
@@ -289,15 +291,15 @@ main > ul li:nth-of-type(7) {
 
 /*------------------------------------------------- quotes -----------------------------------------------------*/
 #quotes {
-    margin-top: 15em;
-    width: 70vw;
-    height: 80vw;
+    margin-top: 10em;
+    width: 80vw;
+    height: 50vh;
     padding: 4em 3em 4em 3em;
     background-color: var(--footer);
     z-index: 1000000;
     position: absolute;
-    top: 10em;
-    left: 6em;
+    top: 5em;
+    left: 3em;
     text-align: center;
     border-radius: 3em;
     display: flex;
@@ -307,12 +309,14 @@ main > ul li:nth-of-type(7) {
 }
 
 #quotes ul li {
-    font-size: 3em;
+    font-size: 3.5em;
     color: var(--text-about);
     text-decoration: none;
     list-style: none;
     margin-bottom: .8em;
     font-family: arial;
+    line-height: 2em;
+    
 }
 
 /*------------------------------------------------- about -----------------------------------------------------*/
