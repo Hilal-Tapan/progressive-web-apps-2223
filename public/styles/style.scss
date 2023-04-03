@@ -1,0 +1,374 @@
+/*--------------------------------------------------- ROOT --------------------------------------------------------*/
+$color_1: var(--nav-text);
+$color_2: var(--text-about);
+$color_3: pink;
+$color_4: white;
+$font-family_1: Arial;
+$font-family_2: Soulcraft;
+$font-family_3: arial;
+$background-color_1: var(--background-color-home);
+$background-color_2: var(--cirkel-lichtgrijs);
+$background-color_3: var(--cirkel-donkergrijs);
+$background-color_4: var(--cirkel-geel);
+$background-color_5: var(--footer);
+$background-color_6: red;
+$background-color_7: white;
+
+@import "https://fonts.cdnfonts.com/css/soulcraft";
+/*bron font: https://www.cdnfonts.com/soulcraft.font */
+
+/*---------------------------------------------- STYLING ----------------------------------------------------*/
+
+/*---------------------------------------------- keyframes -----------------------------------------------*/
+@keyframes cirkel1 {
+	0% {
+		transform: translateX(0%) translateY(0%);
+	}
+	50% {
+		transform: translateX(-70%) translateY(-100%);
+	}
+	100% {
+		transform: translateX(0%) translateY(0%);
+	}
+}
+@keyframes cirkel2 {
+	0% {
+		transform: translateX(0%) translateY(0%);
+	}
+	50% {
+		transform: translateX(00%) translateY(100%);
+	}
+	100% {
+		transform: translateX(0%) translateY(0%);
+	}
+}
+@keyframes cirkel3 {
+	0% {
+		transform: translateX(0%) translateY(0%);
+	}
+	50% {
+		transform: translateX(20%) translateY(-100%);
+	}
+	100% {
+		transform: translateX(0%) translateY(0%);
+	}
+}
+@keyframes cirkel4 {
+	0% {
+		transform: translateX(0%) translateY(0%);
+	}
+	50% {
+		transform: translateX(90%) translateY(-100%);
+	}
+	100% {
+		transform: translateX(0%) translateY(0%);
+	}
+}
+/*------------------------------------------------- about -----------------------------------------------------*/
+&:root {
+	--background-color-home: #484848;
+	--background-color-about: yellow;
+	--footer: white;
+	--text-home: white;
+	--text-about: black;
+	--nav-text: white;
+	--nav-fontsize: 1.5em;
+	--button-color: #7BB3F4;
+	--cirkel-lichtgrijs: #BFBEBC;
+	--cirkel-geel: #FFFF33;
+	--cirkel-donkergrijs: #676566;
+	--inline-shadow: pink;
+	--drop-shadow: black;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: $background-color_1;
+}
+main {
+	height: 78vh;
+	overflow-x: hidden;
+	position: relative;
+/*---------------------------------------------- background cirkels -----------------------------------------------*/
+	>ul {
+		margin: 0;
+		li {
+			position: fixed;
+			list-style: none;
+			width: 3em;
+			height: 3em;
+			border-radius: 3em;
+			box-shadow: inset 1em 1em 1em var(--inline-shadow), 0 8px 6px -6px var(--drop-shadow);
+			&:nth-of-type(1) {
+				width: 10em;
+				height: 10em;
+				border-radius: 15em;
+				background-color: $background-color_2;
+				top: 3em;
+				right: -6em;
+				animation-name: cirkel1;
+				transition-timing-function: ease-in-out;
+				animation-duration: 50s;
+				animation-iteration-count: infinite;
+				animation-delay: 2s;
+			}
+			&:nth-of-type(2) {
+				width: 9em;
+				height: 9em;
+				border-radius: 10em;
+				background-color: $background-color_3;
+				top: -4em;
+				right: -4em;
+			}
+			&:nth-of-type(3) {
+				width: 10em;
+				height: 10em;
+				border-radius: 13em;
+				background-color: $background-color_2;
+				top: 20em;
+				right: -5em;
+			}
+			&:nth-of-type(4) {
+				width: 8em;
+				height: 8em;
+				border-radius: 8em;
+				background-color: $background-color_4;
+				top: 22em;
+				right: -3em;
+				animation-name: cirkel2;
+				transition-timing-function: ease-in-out;
+				animation-duration: 40s;
+				animation-iteration-count: infinite;
+			}
+			&:nth-of-type(5) {
+				width: 8em;
+				height: 8em;
+				border-radius: 6em;
+				background-color: $background-color_4;
+				left: -3em;
+				top: 20em;
+				animation-name: cirkel3;
+				transition-timing-function: ease-in-out;
+				animation-duration: 30s;
+				animation-iteration-count: infinite;
+			}
+			&:nth-of-type(6) {
+				width: 10em;
+				height: 10em;
+				border-radius: 25em;
+				background-color: $background-color_3;
+				left: -6em;
+				bottom: -5em;
+			}
+			&:nth-of-type(7) {
+				width: 9em;
+				height: 9em;
+				border-radius: 7em;
+				background-color: $background-color_4;
+				left: 4em;
+				bottom: -3em;
+				animation-name: cirkel4;
+				transition-timing-function: ease-in-out;
+				animation-duration: 40s;
+				animation-iteration-count: infinite;
+				animation-delay: 2s;
+			}
+		}
+	}
+}
+/*---------------------------------------------- header -------------------------------------------------------*/
+
+header {
+	background: none;
+	padding: 1em 0 0 1em;
+	height: 5em;
+	img {
+		height: 83px;
+		width: 58px;
+	}
+}
+/*---------------------------------------------- navigation -------------------------------------------------------*/
+nav {
+	position: absolute;
+	top: 2vw;
+	right: 5vw;
+	z-index: 10000;
+	ul {
+		display: flex;
+		margin-top: 2em;
+		li {
+			list-style: none;
+			border-bottom: solid .2em var(--background-color-about);
+			padding: 0 1em 0 1em;
+			&:hover {
+				border: solid .2em var(--background-color-about);
+			}
+			a {
+				text-decoration: none;
+				color: $color_1;
+				font-size: var(--nav-fontsize);
+				font-family: $font-family_1;
+			}
+		}
+	}
+}
+/*------------------------------------------------- index  -----------------------------------------------------*/
+#home {
+	margin-top: 3em;
+	width: 85vw;
+	height: 65vh;
+	padding: 2em 1em 2em 1em;
+	background-color: $background-color_5;
+	z-index: 1000000;
+	position: absolute;
+	text-align: center;
+	border-radius: 3em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 1em;
+	h1 {
+		font-family: $font-family_2;
+		font-size: 3em;
+		letter-spacing: .2em;
+		margin: 1em 0 1em 0;
+	}
+	ul {
+		padding: 1em;
+		height: 20em;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		li {
+			font-size: 1.2em;
+			color: $color_2;
+			text-decoration: none;
+			list-style: none;
+			margin-bottom: 1.5em;
+			padding: 0;
+			font-family: $font-family_3;
+			a {
+				text-decoration: none;
+				color: $color_2;
+				&:hover {
+					color: $color_3;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+/*------------------------------------------------- quotes -----------------------------------------------------*/
+#quotes {
+	margin-top: 3em;
+	width: 85vw;
+	height: 50vh;
+	padding: 2em 1em 2em 1em;
+	background-color: $background-color_5;
+	z-index: 1000000;
+	position: absolute;
+	text-align: center;
+	border-radius: 3em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 1em;
+	ul {
+		padding: 0 1em;
+		li {
+			font-size: 1.5em;
+			color: $color_2;
+			text-decoration: none;
+			list-style: none;
+			margin-bottom: 1.5em;
+			padding: 0;
+			font-family: $font-family_3;
+			line-height: 1.5em;
+			text-align: center;
+			align-items: center;
+			margin-top: 50%;
+			line-height: 1.5em;
+		}
+	}
+}
+/*---------------------------------------------------- about -------------------------------------------------------*/
+#about {
+	margin-top: 3em;
+	width: 85vw;
+	height: 60vh;
+	padding: 2em 1em 2em 1em;
+	background-color: $background-color_5;
+	z-index: 1000000;
+	position: absolute;
+	text-align: center;
+	border-radius: 3em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 1em;
+	h1 {
+		font-family: $font-family_2;
+		font-size: 3em;
+		letter-spacing: .2em;
+		margin: 1em 0 1em 0;
+	}
+	p {
+		font-size: 3em;
+		font-size: 1.2em;
+		color: $color_2;
+		text-decoration: none;
+		list-style: none;
+		margin-bottom: 1.5em;
+		padding: 0;
+		font-family: $font-family_3;
+		line-height: 1.5em;
+	}
+}
+/*---------------------------------------------------- offline -------------------------------------------------------*/
+#offline {
+	margin-top: 3em;
+	width: 85vw;
+	height: 60vh;
+	padding: 2em 1em 2em 1em;
+	background-color: $background-color_5;
+	z-index: 1000000;
+	position: absolute;
+	text-align: center;
+	border-radius: 3em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 1em;
+	h1 {
+		font-family: $font-family_3;
+		font-size: 2em;
+		line-height: 1.3em;
+		color: $color_4;
+		background-color: $background-color_6;
+		padding: .5em;
+		border-radius: .5em;
+		margin-top: 60%;
+	}
+}
+/*---------------------------------------------------- footer -------------------------------------------------------*/
+footer {
+	background-color: $background-color_7;
+	height: 7em;
+	z-index: 10000;
+	overflow-y: hidden;
+	>ul {
+		display: flex;
+		position: absolute;
+		bottom: 0em;
+		right: 1em;
+		li {
+			list-style: none;
+			padding: 0 .5em 0 .5em;
+		}
+	}
+	img {
+		width: 3em;
+		height: 3em;
+	}
+}

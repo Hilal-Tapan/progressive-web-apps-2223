@@ -1,9 +1,49 @@
-# Progressive Web Apps @cmda-minor-web 2022 - 2023
+# Progressive Web Apps 
 
 ![pwa](https://user-images.githubusercontent.com/3104648/28351989-7f68389e-6c4b-11e7-9bf2-e9fcd4977e7a.png)
 
-## Live site
+Your daily web quote was a browser based one page web project, designed to view quotes related to the web. 
+Whether you are a ux designer or a back-end developer, it doesn't matter. The quotes can apply to all jobs in the web field! 
+
+For the progressive web app course, I'm going to refate my Your Daily Web quotes app to a server side application using Node.js. This project is part of the minor Web Design and Development at the University of Applied Sciences Amsterdam.
+
+## 👁️ Live Site Link! 👁️
 https://hilal-tapan.github.io/progressive-web-apps-2223/ 
+
+## 🛠️ Used Technologies 🛠️
+* EJS templating engine
+* CSS3
+* JavaScript
+* Google sheet API
+* SCSS
+* PWA
+* NPM
+* NodeJs
+* Express
+
+## 💻 Installation 💻
+1. To install the server you need node and express. You can do that with nvm. Nvm is package installer where you can install different packages. With this code you can install the latest versions of npm and node:
+```
+nvm install 19.8.1
+```
+
+2. Clone this repository by running:
+```
+git clone https://github.com/Hilal-Tapan/progressive-web-apps-2223.git
+```
+
+3. Install the dependencies by running 
+```
+npm install 
+```
+to install the dependencies. 
+
+4. Then run 
+```
+npm start
+```
+ to start the development server.
+
 
 
 ## Synopsis
