@@ -188,16 +188,16 @@ Overall, the minify extension is a useful tool for web developers looking to imp
 * Critical render path You’ve enhanced the critical render path for a better runtime or percieved performance in multiple ways and have described how you managed to do this.
 * Service Worker You’ve implemented a usefull Service Worker and show it’s working in an activity diagram.
 
-- Course: Progressive Web Apps
-- Course Coordinator: Justus Sturkenboom ([@ju5tu5](https://github.com/ju5tu5))
-- Minor Coordinator(s): Joost Faber ([@joostf](https://github.com/joostf)) Koop Reynders ([@KoopReynders](https://github.com/KoopReynders))
-- Lecturers: Declan Rek ([@decrek](https://github.com/decrek)) & Janno([@shortstoryrguy](https://github.com/shortstoryrguy))
-- Student Assistants: TBA
-- Credit: 3 ECTS credits
-- Academic year: 2022-2023
-- Programme: Communication and Multimedia Design (full time bachelor)
-- Language: Dutch instructions and English resources
 
+
+## bronnen 
+* https://www.npmjs.com/package/axios
+* https://ejs.co/#docs 
+* https://www.awwwards.com/PWA-ebook/en#what-are-pwa
+* https://web.dev/learn/pwa/service-workers/ 
+* https://expressjs.com/en/starter/hello-world.html 
+* https://www.npmjs.com/package/express-minify-html 
+* 
 ## Description
 In this course we convert the client side web application, made during the Web App From Scratch course, into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Finally we’ll implement a series of optimisations to improve the performance of the application.  
 
