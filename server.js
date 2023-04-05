@@ -1,13 +1,21 @@
-const express = require('express')
+// Import required dependencies
+const express = require('express');
 const axios = require('axios');
 const minifyHTML = require('express-minify-html');
 
+// Create an instance of Express
 const app = express();
+
+// Set the port number for the server to listen on
 const port = 3000;
 
+// Serve static files from the "public" directory
 app.use(express.static('public'));
+
+// Serve static files from the "public" directory using the "/public" URL root
 app.use('/public', express.static(__dirname + '/public/'));
 
+// Minify HTML responses using the Express-Minify-HTML middleware
 app.use(minifyHTML({
     override:      true,
     exception_url: false,
@@ -21,16 +29,18 @@ app.use(minifyHTML({
     }
 }));
 
-//setting view engine to ejs
+// Set the view engine to EJS
 app.set("view engine", "ejs");
 
-// Home page
+// Define the home page route
 app.get('/', (req, res) => {
     let data;
+    // Make a GET request to an external API to fetch data
     axios.get('https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1')
         .then((response) => {
             console.log('result', response.data)
             data = response.data
+            // Render the "index" template and pass in the fetched data
             res.render('index', {
                 title: 'Home',
                 data: data
@@ -41,55 +51,49 @@ app.get('/', (req, res) => {
         })
 })
 
-// Quotes page
+// Define the quotes page route
 app.get('/quotes/:id', (req, res) => {
     let data;
+    // Make a GET request to an external API to fetch data
     axios.get('https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1')
       .then((response) => {
         console.log('result', response.data);
         data = response.data;
-        const filteredQuotes = data.filter(quote => quote.id === req.params.id); // filter the quotes based on the id parameter
+        // Filter the fetched data to only include quotes with the specified ID parameter
+        const filteredQuotes = data.filter(quote => quote.id === req.params.id);
+        // Render the "quotes" template and pass in the filtered quotes
         res.render('quotes', {
           title: 'Random Quote',
-          data: filteredQuotes // render only the filtered quotes
+          data: filteredQuotes
         });
       })
       .catch((error) => {
         console.log('error', error);
       });
-  });
-  
+});
 
-// About page
+// Define the about page route
 app.get('/about', (req, res) => {
-
+    // Render the "about" template with a page title
     res.render('about', {
         title: 'About',
         pageTitle: 'About Design Quotes'
     });
-})
+});
 
-// Offline
+// Define the offline page route
 app.get('/offline', (req, res) => {
-
+    // Render the "offline" template with a page title
     res.render('offline', {
         title: 'offline',
         pageTitle: 'You are offline'
     });
-})
+});
 
-
-// start webserver
+// Start the server
 app.listen(port, () => {
     console.log(`localhost running on https://localhost:${port}`)
 });
 
-// Make sure to export the router so it becomes available on imports
+// Export the app instance to make it available to other modules
 module.exports = app;
-
-
-
-// AANTEKENINGEN
-// app.get('/quote/:quotes', (req, res) => {
-//     res.send(`${req.params.quotes}`)
-// })
