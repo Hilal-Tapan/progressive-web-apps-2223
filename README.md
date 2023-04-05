@@ -173,7 +173,9 @@ app.get('/quotes/:id', (req, res) => {
 ```
 Here i used data.filter to filter the quote.id with req.params.id and render these to my detailpage.
 
-## Full server.js code
+***
+
+## My server.js code
 
 ```javascript
 const express = require('express')
@@ -287,12 +289,23 @@ In addition to reducing file size, minification can also make code harder to rea
 
 Overall, the minify extension is a useful tool for web developers looking to improve website performance and reduce page load times.
 
-### SAS
+### SASS
 SASS (short for Syntactically Awesome Style Sheets) is a preprocessor scripting language that is used to simplify and streamline the process of writing CSS code. SASS is essentially a superset of CSS, which means that any valid CSS code is also valid SASS code. However, SASS includes additional features that allow developers to write more complex stylesheets with less code. For example, SASS supports variables, which can be used to store and reuse values such as colors, font sizes, and margins. It also supports **nested syntax**, which allows developers to write more readable and organized code.
 
 One of the key benefits of using SASS is that it can significantly reduce the amount of repetitive code that is needed to create complex stylesheets. This can make it easier to maintain and update styles over time, as well as improve the overall performance of a website.
 
 SASS can be compiled into standard CSS using a variety of tools, including command line utilities, web-based compilers, and integrations with popular build tools such as Grunt and Gulp. This allows developers to write SASS code using their preferred development environment and then easily convert it into optimized CSS for use on the web.
+
+***
+
+## Client side and server side rendering
+Client-side rendering and server-side rendering are two different approaches to rendering web content.
+
+Client-side rendering means that the rendering of web content is done on the client-side, typically using JavaScript. When a user requests a web page, the server sends back the HTML, CSS, and JavaScript files to the client, and the client's browser then runs the JavaScript code to render the web content. This approach provides a faster initial load time, as the server only needs to send the initial HTML and JavaScript files to the client, and subsequent interactions with the web page can be faster as only the necessary data is requested from the server. However, client-side rendering can lead to slower load times for larger applications as all the data and content need to be loaded initially, and it also requires more processing power on the client-side.
+
+Server-side rendering, on the other hand, means that the web content is rendered on the server-side before being sent to the client's browser. When a user requests a web page, the server processes the request and generates an HTML document, which is then sent to the client. This approach provides a better initial load time, as the server sends the fully rendered HTML document to the client, which can display it without waiting for JavaScript to load. However, server-side rendering can be slower for subsequent interactions as the server needs to generate a new HTML document for each interaction.
+
+In summary, client-side rendering is faster for smaller web applications, but can lead to slower load times for larger applications. Server-side rendering provides a better initial load time, but can be slower for subsequent interactions.
 
 ***
 
@@ -324,16 +337,16 @@ Overall, PWAs offer a more seamless and user-friendly experience compared to tra
 ### Manifest.json
 The manifest.json file is a crucial part of a Progressive Web App (PWA) that provides information about the app and helps the browser understand how it should be installed and launched on the user's device. Here are some of the key things you need to include in the manifest.json file:
 
-`name`: The name of the app as it should appear to the user.
-`short_name`: A shorter version of the app name that may be used in places where space is limited.
-`start_url`: The URL of the app's start page.
-`icons`: An array of images that will be used as app icons on the home screen, app launcher, and task switcher. Each image should be in PNG format and have different sizes.
-`theme_color`: The color of the app's toolbar and other UI elements. This should be a hexadecimal color code.
-`background_color`: The background color of the app's splash screen. This should also be a hexadecimal color code.
-`display`: The display mode of the app, which can be fullscreen, standalone, minimal-ui, or browser.
-`description`: A short description of the app.
-`orientation`: The orientation of the app, which can be portrait, landscape, or any.
-`scope`: The URL scope of the app, which determines the URLs that the app can access.
+* `name`: The name of the app as it should appear to the user.
+* `short_name`: A shorter version of the app name that may be used in places where space is limited.
+* `start_url`: The URL of the app's start page.
+* `icons`: An array of images that will be used as app icons on the home screen, app launcher, and task switcher. Each image should be in PNG format and have different sizes.
+* `theme_color`: The color of the app's toolbar and other UI elements. This should be a hexadecimal color code.
+* `background_color`: The background color of the app's splash screen. This should also be a hexadecimal color code.
+* `display`: The display mode of the app, which can be fullscreen, standalone, minimal-ui, or browser.
+* `description`: A short description of the app.
+* `orientation`: The orientation of the app, which can be portrait, landscape, or any.
+* `scope`: The URL scope of the app, which determines the URLs that the app can access.
 
 ```json
 {
@@ -463,7 +476,7 @@ This service worker file does the following:
 3. Test the service worker: Once you've added the service worker file to your web application, you can test it by opening your application in the browser and checking the console for any errors. You can also use the browser's Developer Tools to check the "Application" tab and verify that the service worker is registered and active.
 
 
-### Activity Diagram
+## Activity Diagram
 
 
 ## Critical rendering path
