@@ -13,6 +13,11 @@ https://hilal-tapan.github.io/progressive-web-apps-2223/
 
 ***
 
+## 📄 License 📄
+This project has a MIT License - see the license file for more details.
+
+***
+
 ## 🛠️ Used Technologies 🛠️
 * EJS templating engine
 * CSS3
@@ -55,8 +60,8 @@ npm start
 
 ***
 
-## 📄 License 📄
-This project has a MIT License - see the license file for more details.
+## User story
+As a user, I want to be able to access my favorite website even when I don't have an internet connection, I wanna get feedback when i'm offline.
 
 ***
 
@@ -475,6 +480,25 @@ This service worker file does the following:
 
 3. Test the service worker: Once you've added the service worker file to your web application, you can test it by opening your application in the browser and checking the console for any errors. You can also use the browser's Developer Tools to check the "Application" tab and verify that the service worker is registered and active.
 
+
+## Caching Assets
+```js
+const staticCacheName = "site-static"
+const assets = [ 
+    "/offline",
+    "/public/styles/style.min.css",
+    "./images/Middel-1.webp",
+    "/images/facebook-logo.webp",
+    "/images/twitter-logo.webp",
+    "/images/insta-logo.webp" 
+]
+```
+
+* `const staticCacheName = "site-static"` creates a constant variable named staticCacheName and assigns it the string value "site-static". This variable is typically used as the name of the cache where static assets are stored by the service worker. 
+
+* `const assets = [ ... ]` creates an array variable named assets and assigns it an array of strings that represent the URLs of various assets that are to be cached by the service worker. 
+
+This array is used later in the service worker code to cache these assets so that they can be served to users even when they are offline. When a user visits the website for the first time, the service worker will fetch these assets and store them in the cache named site-static. Then, when the user visits the website again (even if they are offline), the service worker can serve these cached assets from the cache, providing a faster and more reliable experience for the user.
 
 ## Activity Diagram
 
