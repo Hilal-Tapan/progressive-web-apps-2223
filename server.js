@@ -1,6 +1,6 @@
 const express = require('express')
 const axios = require('axios');
-var minifyHTML = require('express-minify-html');
+const minifyHTML = require('express-minify-html');
 
 const app = express();
 const port = 3000;

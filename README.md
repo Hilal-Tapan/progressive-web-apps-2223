@@ -1,5 +1,4 @@
 # Progressive Web Apps 
-
 ![pwa](https://user-images.githubusercontent.com/3104648/28351989-7f68389e-6c4b-11e7-9bf2-e9fcd4977e7a.png)
 
 Your daily web quote was a browser based one page web project, designed to view quotes related to the web. 
@@ -7,8 +6,12 @@ Whether you are a ux designer or a back-end developer, it doesn't matter. The qu
 
 For the progressive web app course, I'm going to refate my Your Daily Web quotes app to a server side application using Node.js. This project is part of the minor Web Design and Development at the University of Applied Sciences Amsterdam.
 
+***
+
 ## 👁️ Live Site Link! 👁️
 https://hilal-tapan.github.io/progressive-web-apps-2223/ 
+
+***
 
 ## 🛠️ Used Technologies 🛠️
 * EJS templating engine
@@ -20,7 +23,9 @@ https://hilal-tapan.github.io/progressive-web-apps-2223/
 * NodeJs
 * Express
 
-## 💻 Installation 💻
+***
+
+## 💻 Installation Guide 💻
 
 #### install nvm
 1. To install the server you need node and express. You can do that with nvm. Nvm is package installer where you can install different packages. With this code you can install the latest versions of npm and node:
@@ -48,6 +53,12 @@ npm start
 ```
  to start the development server.
 
+***
+
+## 📄 License 📄
+This project has a MIT License - see the license file for more details.
+
+***
 
 ## 💾 Node.js server 💾
 1. Install Node.js: First, you need to install Node.js on your computer. You can download and install it from the official website.
@@ -135,7 +146,9 @@ This is a code snippet that defines a route for an HTTP GET request in a Node.js
 The route's path is set to '/', which means that it will handle requests to the application's root URL.
 The route handler function takes two parameters: req (request) and res (response).
 Within the function, a variable data is declared and assigned to undefined.
-Then, an HTTP GET request is sent to the URL 'https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1' using the Axios library. Axios is a popular library for making HTTP requests in Node.js applications.
+Then, an HTTP GET request is sent to the URL 'https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1' using the Axios library. 
+
+Axios is a popular library for making HTTP requests in Node.js applications.
 If the request is successful, the response data is logged to the console and assigned to the data variable. Then, the res.render() method is called to render the 'index' view with a title of 'Home' and the data variable passed as an object. This view will be displayed in the user's browser as the response to the HTTP request.
 If the request fails, an error message is logged to the console.
 Overall, this code retrieves data from an external source and passes it to a view to be rendered as a webpage in response to an HTTP GET request.
@@ -158,9 +171,102 @@ app.get('/quotes/:id', (req, res) => {
       });
   }); 
 ```
-Here i used data.filter to filter the quote.id with req.params.id and render these.
+Here i used data.filter to filter the quote.id with req.params.id and render these to my detailpage.
 
-## Building Tool
+## Full server.js code
+
+```javascript
+const express = require('express')
+const axios = require('axios');
+const minifyHTML = require('express-minify-html');
+
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+app.use('/public', express.static(__dirname + '/public/'));
+
+app.use(minifyHTML({
+    override:      true,
+    exception_url: false,
+    htmlMinifier: {
+        removeComments:            true,
+        collapseWhitespace:        true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes:     true,
+        removeEmptyAttributes:     true,
+        minifyJS:                  true
+    }
+}));
+
+//setting view engine to ejs
+app.set("view engine", "ejs");
+
+// Home page
+app.get('/', (req, res) => {
+    let data;
+    axios.get('https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1')
+        .then((response) => {
+            console.log('result', response.data)
+            data = response.data
+            res.render('index', {
+                title: 'Home',
+                data: data
+            });
+
+        }).catch((error) => {
+            console.log('error', error)
+        })
+})
+
+// Quotes page
+app.get('/quotes/:id', (req, res) => {
+    let data;
+    axios.get('https://opensheet.elk.sh/12nr4W-RHpvhnw76MCZZtujYHqP1qIU28ExM4oXQfzys/blad1')
+      .then((response) => {
+        console.log('result', response.data);
+        data = response.data;
+        const filteredQuotes = data.filter(quote => quote.id === req.params.id); // filter the quotes based on the id parameter
+        res.render('quotes', {
+          title: 'Random Quote',
+          data: filteredQuotes // render only the filtered quotes
+        });
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+  });
+  
+// About page
+app.get('/about', (req, res) => {
+
+    res.render('about', {
+        title: 'About',
+        pageTitle: 'About Design Quotes'
+    });
+})
+
+// Offline
+app.get('/offline', (req, res) => {
+
+    res.render('offline', {
+        title: 'offline',
+        pageTitle: 'You are offline'
+    });
+})
+
+// start webserver
+app.listen(port, () => {
+    console.log(`localhost running on https://localhost:${port}`)
+});
+
+// Make sure to export the router so it becomes available on imports
+module.exports = app;
+```
+
+***
+
+## 🛠️ Building Tool 🛠️
 Build tools automate repetitive tasks and optimize workflow once the application is deployed. Build tooling is used mostly :
 
 * to shrink and minimize javascript files.
@@ -170,6 +276,7 @@ Build tools automate repetitive tasks and optimize workflow once the application
 
 I chose SASS and minify as a building tool for my css. I dont have any javascript other than my server.js so i didn't need any minifier for that. 
 
+### Minify
 Minification is a technique used to reduce the size of a file by removing unnecessary characters and whitespace without changing its functionality. The minify extension is a tool that automates this process for web developers.
 
 When building a website, developers often use libraries and frameworks that contain large amounts of code. This code can include comments, whitespace, and other characters that are not necessary for the code to function. Minification removes these extraneous elements to make the file smaller, which can improve page load times and overall website performance.
@@ -179,6 +286,190 @@ The minify extension can be used with a variety of web development languages, in
 In addition to reducing file size, minification can also make code harder to read and understand. For this reason, it is important to keep a backup of the original code and use a minification tool that produces readable output or has a "beautify" option to revert the minified code back to its original format if needed.
 
 Overall, the minify extension is a useful tool for web developers looking to improve website performance and reduce page load times.
+
+### SAS
+SASS (short for Syntactically Awesome Style Sheets) is a preprocessor scripting language that is used to simplify and streamline the process of writing CSS code. SASS is essentially a superset of CSS, which means that any valid CSS code is also valid SASS code. However, SASS includes additional features that allow developers to write more complex stylesheets with less code. For example, SASS supports variables, which can be used to store and reuse values such as colors, font sizes, and margins. It also supports **nested syntax**, which allows developers to write more readable and organized code.
+
+One of the key benefits of using SASS is that it can significantly reduce the amount of repetitive code that is needed to create complex stylesheets. This can make it easier to maintain and update styles over time, as well as improve the overall performance of a website.
+
+SASS can be compiled into standard CSS using a variety of tools, including command line utilities, web-based compilers, and integrations with popular build tools such as Grunt and Gulp. This allows developers to write SASS code using their preferred development environment and then easily convert it into optimized CSS for use on the web.
+
+***
+
+## Progressive Web App (PWA)
+PWA stands for Progressive Web Application. It is a type of web application that is designed to look and feel like a native mobile app but is accessed through a web browser. PWAs use modern web technologies such as **service workers**, **web app manifests**, and **push notifications** to deliver an app-like experience to users, without requiring them to download anything from an app store.
+
+Some of the key benefits of PWAs include:
+* fast loading times
+* offline functionality 
+* the ability to send push notifications. 
+
+PWAs are also more discoverable than native apps since they can be found and accessed through a simple URL, and they can be easily shared and accessed on any device or platform.
+
+Overall, PWAs offer a more seamless and user-friendly experience compared to traditional web applications, and they are becoming increasingly popular among developers and businesses alike.
+
+### How to make a PWA?
+1. Start with a responsive web design: Before you can create a PWA, you need to have a website that is optimized for mobile devices and can adapt to different screen sizes.
+
+2. Add a web app manifest: A web app manifest is a JSON file that provides information about your PWA, such as its name, icons, and start URL. This file tells the browser how to display your PWA when it is launched.
+
+3. Implement a service worker: A service worker is a JavaScript file that runs in the background of your PWA and can intercept network requests, cache assets, and handle push notifications. The service worker is essential for creating an offline-first experience, which is a key feature of PWAs.
+
+4. Optimize performance: To ensure that your PWA loads quickly and performs well, you should optimize your code, use a content delivery network (CDN), and compress your assets.
+
+5. Test and debug: Once your PWA is built, you should test it on different devices and browsers to ensure that it works as expected. You can use tools like Lighthouse, which is built into Google Chrome, to test the performance and accessibility of your PWA.
+
+6. Deploy your PWA: Once you have tested and debugged your PWA, you can deploy it to your web server or hosting provider. You should also register your PWA with app stores like Google Play and the Apple App Store, which will make it more discoverable to users.
+
+### Manifest.json
+The manifest.json file is a crucial part of a Progressive Web App (PWA) that provides information about the app and helps the browser understand how it should be installed and launched on the user's device. Here are some of the key things you need to include in the manifest.json file:
+
+`name`: The name of the app as it should appear to the user.
+`short_name`: A shorter version of the app name that may be used in places where space is limited.
+`start_url`: The URL of the app's start page.
+`icons`: An array of images that will be used as app icons on the home screen, app launcher, and task switcher. Each image should be in PNG format and have different sizes.
+`theme_color`: The color of the app's toolbar and other UI elements. This should be a hexadecimal color code.
+`background_color`: The background color of the app's splash screen. This should also be a hexadecimal color code.
+`display`: The display mode of the app, which can be fullscreen, standalone, minimal-ui, or browser.
+`description`: A short description of the app.
+`orientation`: The orientation of the app, which can be portrait, landscape, or any.
+`scope`: The URL scope of the app, which determines the URLs that the app can access.
+
+```json
+{
+    "name": "Your daily web quote",
+    "short_name": "YDWB",
+    "scope": "/",
+    "start_url": "/index.ejs",
+    "display": "standalone",
+    "background-color": "rgb(255, 255, 255)",
+    "theme_color": "rgb(255, 255, 255)",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/images/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
+```
+
+These are some of the most important fields that you should include in your manifest.json file, although there are others you can add depending on your app's needs. Once you've created your manifest.json file, you can include it in the head of your HTML document using the link tag, like this:
+
+```html
+<link rel="manifest" href="/manifest.json">
+```
+
+***
+
+## What is a service worker?
+A service worker is a type of JavaScript file that runs in the background of a web application and can 
+* intercept network requests
+* cache assets
+* provide offline functionality. 
+It is a key component of Progressive Web Apps (PWAs) and enables PWAs to offer a native app-like experience to users.
+
+Service workers operate independently of the main browser thread and can continue to run even when the web application is closed. This allows them to perform tasks in the background, such as:
+* pre-caching resources
+* updating content
+* responding to push notifications.
+
+### Key features of service workers
+Some of the key features of service workers include:
+* Caching: Service workers can cache static assets and API responses, allowing the web application to load faster and work offline.
+* Background sync: Service workers can synchronize data in the background, even when the web application is not open, ensuring that the user's data is always up-to-date.
+* Push notifications: Service workers can receive and display push notifications, allowing the web application to send timely updates to users.
+* Intercepting network requests: Service workers can intercept network requests made by the web application, allowing them to serve cached responses or modify requests before they are sent to the server.
+
+### How to implement a service worker?
+1. Register the service worker: The first step is to register the service worker in your web application. To do this, you need to add the following code to your footer file:
+```javascript
+        //service worker
+        if ("serviceWorker" in navigator) {
+            // Register a service worker hosted at the root of the
+            // site using the default scope.
+            navigator.serviceWorker.register("/sw.js").then(
+                (registration) => {
+                    console.log("Service worker registration succeeded:", registration);
+                },
+                (error) => {
+                    console.error(`Service worker registration failed: ${error}`);
+                }
+            );
+        } else {
+            console.error("Service workers are not supported.");
+        }
+```
+This code checks if the serviceWorker API is available in the user's browser, and if it is, registers the service worker file sw.js. The register() method returns a promise that resolves when the service worker is registered successfully.
+
+2. Create the service worker file: Now you need to create the sw.js file and add it to your web publics map:
+```js
+// install service worker
+self.addEventListener("install", (event) => {
+
+    // The promise that skipWaiting() returns can be safely ignored.
+    // bron: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting 
+    self.skipWaiting();
+    
+    // console.log("Service worker has been installed")
+    event.waitUntil(
+    caches.open(staticCacheName).then(cache => {
+        console.log("catching shell assets");
+        cache.addAll(assets);
+    })
+  )
+});
+  
+// activate service worker
+self.addEventListener("activate", (event) => {
+    // console.log("Service worker has been activated")
+});
+
+self.addEventListener("fetch", (event) => {
+    event.respondWith(
+      caches.match(event.request).then((cacheRes) => {
+        if (cacheRes) {
+          return cacheRes;
+        }
+        return fetch(event.request).catch(() => {
+          return caches.match("/offline");
+        });
+      })
+    );
+  });
+```
+
+This service worker file does the following:
+* Installs and activates the service worker
+* Caches static assets (i.e. HTML, CSS, and JS files) when the service worker is installed
+* Intercepts network requests made by the web application and serves the cached response, if available
+
+3. Test the service worker: Once you've added the service worker file to your web application, you can test it by opening your application in the browser and checking the console for any errors. You can also use the browser's Developer Tools to check the "Application" tab and verify that the service worker is registered and active.
+
+
+### Activity Diagram
+
+
+## Critical rendering path
+
+
+## Hosting 
 
 
 
@@ -190,7 +481,7 @@ Overall, the minify extension is a useful tool for web developers looking to imp
 
 
 
-## bronnen 
+## Sources
 * https://www.npmjs.com/package/axios
 * https://ejs.co/#docs 
 * https://www.awwwards.com/PWA-ebook/en#what-are-pwa
@@ -198,20 +489,6 @@ Overall, the minify extension is a useful tool for web developers looking to imp
 * https://expressjs.com/en/starter/hello-world.html 
 * https://www.npmjs.com/package/express-minify-html 
 * 
-## Description
-In this course we convert the client side web application, made during the Web App From Scratch course, into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Finally we’ll implement a series of optimisations to improve the performance of the application.  
-
-## Communication
-- [Github](https://github.com/cmda-minor-web/progressive-web-apps-2122)
-- [Microsoft Teams](https://teams.microsoft.com/l/channel/19%3aacf0946687dc4ba9a9400fb7c6d7a81c%40thread.tacv2/05%2520-%2520Progressive%2520Web%2520Apps)
-- [Brightspace](https://dlo.mijnhva.nl/d2l/home/324147)
-
-If you have questions:
-- [Look at the additional resources]()
-- [Use a search engine like startpage](https://www.startpage.com/)
-- [Ask questions on MS Teams](https://teams.microsoft.com/l/channel/19%3a64132926ecfc442bbce80e14bc6c3f7b%40thread.tacv2/06%2520Progressive%2520Web%2520Apps?groupId=c8b97eb6-ad53-4531-ad66-5c3c6297951c&tenantId=0907bb1e-21fc-476f-8843-02d09ceb59a7) (please help each other!)
-- [Contact a student-assisstant](#synopsis)
-- [Contact a lecturer](#synopsis)
 
 ## Goals
 After finishing this program you can:
@@ -229,100 +506,6 @@ Your efforts will be graded using a single point rubric (see below). You will ha
 |  |*Service Worker* You’ve implemented a usefull Service Worker and show it’s working in an activity diagram. |  |
 |  |*Critical render path* You’ve enhanced the critical render path for a better runtime or percieved performance in multiple ways and have described how you managed to do this. |  |
 
-## Programme
-
-### Daily Schedule
-To keep things simple we use a daily schedule that will be used during normal course days (monday/tuesday). We make exceptions for fridays, on these days a different schedule will be given.
-
-| Time | Who | Activity |
-|:--|:--|:--|
-| *~09:20* | *(Declan, Janno)* | *Standup* |
-| 09:30 | Tribe *+(Declan, Janno)* | Talk with crucial information (make sure you attend!) |
-| 11:00 | Tribe | Work on the (day)assignment |
-|  | Team 1 *+(Declan)* | Standup |
-|  | Team 2 *+(Janno)* | Standup |
-| 11:20 | Team 3 *+(Declan)* | Standup |
-|  | Team 4 *+(Janno)* | Standup |
-| 11.40 | Team 5 *+(Declan)* | Standup |
-|  | Team 6 *+(Janno)* | Standup |
-| 12.00 | Team 7 *+(Declan)* | Standup |
-|  | Team 8 *+(Janno)* | Standup |
-| 12.20 | Team 9 *+(Declan)* | Standup |
-|  | Team 10 *+(Janno)* | Standup |
-| 13:00 | Tribe *+(TBA)* | Continue work on the (day)assignment |
-| 16:00ish | Tribe *+(TBA)* | Wrapup |
-
-### Week 1 - Server Side Rendering 📡
-Goal: Render web pages server side
-
-[Exercises for week 1](./course/week-1.md)
-
-#### Monday 20 maart    
-We start out with a short explanation of this course. Right behind is a presentation on Server Side Rendering by Declan Rek from *de Voorhoede* [Server Side Rendering - slides by Declan Rek](course/cmd-2022-server-side-rendering.pdf)
-
-After this presentation you may start working on [this weeks exercises](./course/week-1.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). At the end of the day you’ll do a wrap-up of your work and take the evening off.
-
-#### Tuesday 21 maart
-We’ll split up in two groups, those who want to go through the details again team up with Justus, those who want to go deeper team up with Declan. Both groups will hold live-coding sessions and will be able to ask questions.
-
-After this live-coding session you continue working on [this weeks exercises](./course/week-1.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). You’ll finish with a wrap-up of your work and take the evening off.
-
-#### Friday 24 maart
-We’ll be introduced to ****! They’ll show us around their workfloor and tell us about (working in) their company. You can use the spare time to finish [this weeks exercises](./course/week-1.md) and ask questions. Wrap-up your work and take off for the weekend. We might go for drinks..
-
-| Time | Who | Activity |
-|:--|:--|:--|
-| 13.00 | Tribe *+(Declan, Janno)* | Questions.. |
-| 13.30 | Tribe *+(Declan, Janno)* | Meeting with company? |
-| 16.00 | Tribe *+(Declan?, Janno?)* | (drinks?!) |
-
-### Week 2 - Progressive Web App 🚀
-Goal: Convert application to a Progressive Web App
-
-[Exercises for week 2](./course/week-2.md)  
-
-#### Monday 27 maart
-We set off the week with a presentation on Progressive Web Apps by Declan Rek from *de Voorhoede* [Progressive Web Apps - slides Declan Rek](./course/cmd-2022-progressive-web-apps.pdf)
-
-After this presentation you’ll start working on [this weeks exercises](./course/week-2.md). Again, we’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). We’ll wrap-up the day as usual and take the evening off.
-
-#### Tuesday 28 maart
-We’ll split up again, those who want to go through the details again team up with Justus, those who want to go even deeper team up with Declan. Both groups will hold live-coding sessions and will be able to ask questions.
-
-After this live-coding session you continue working on [this weeks exercises](./course/week-2.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). You’ll finish with a wrap-up of your work and take the evening off.
-
-#### Friday 31 maart 
-We will have a [peer review session](./course/peer-review.md). You will read, comment and fire issues on each others code. Doing this helps others dotting the i’s on their project.
-
-| Time | Who | Activity |
-|:--|:--|:--|
-| 13.00 | Tribe *+(Declan, Janno)* | Peer review |
-| 15.30 | Tribe *+(Declan, Janno)* | Wrap-up for the weekend |
-| 16.00 | Tribe?! | (drinks?! or not?!) |
-
-### Week 3 - Critical Rendering Path 📉 
-Goal: Optimize the Critical Rendering Path
-
-[Exercises for week 3](./course/week-3.md)  
-
-#### Monday 3 april
-We’ll set of the 3rd and final week with a presentation on the Critical Rendering Path by Declan Rek from *de Voorhoede* [Progressive Web Apps - slides Declan Rek](./course/cmd-2020-critical-rendering-path.pdf)
-
-After this presentation you’ll work on [this weeks exercises](./course/week-3.md). Again, we’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). We’ll wrap-up the day (are you starting to get the hang of it?) as usual and take the evening off.
-
-#### Tuesday 4 april
-We’ll split a third time... Again, those who want to go through the details team up with Justus. Those who want to go beyond.. fearlessly.. into the dark depths of optimization, team up with Declan. Both groups will hold live-coding sessions and will be able to ask questions.
-
-After this live-coding session you continue working on [this weeks exercises](./course/week-3.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). You’ll finish with a wrap-up of your work and take the evening off.
-
-#### Friday 7 april
-We will have our final [peer review session](./course/peer-review.md). You will read, comment and fire issues on each others code. Doing this helps others dotting the i’s on their project.
-
-| Time | Who | Activity |
-|:--|:--|:--|
-| 13.00 | Tribe *+(Declan, Janno)* | Peer review |
-| 15.30 | Tribe *+(Declan, Janno)* | Finalize your assignment |
-| 16.00 | Tribe *+(Declan, Janno)* | (drinks?!) |
 
 
 <!-- Here are some hints for your project! -->
