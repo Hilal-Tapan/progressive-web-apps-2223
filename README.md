@@ -516,15 +516,24 @@ This is important for improving the user experience and for ensuring that your w
 
 - Added title tag in all html, apparently i keep forgetting to do this.
 - Logo sizing changed to original. The logo was very blurry, that was because i apparently used different sizing in my styling. After changing this the logo was very clear again.
-- Img sizing also put in html.
-- Added a <meta name="theme-color" content="#4285f4"/>. 
-- Weirdly i forgot the <meta name="viewport" content="width=device-width, initial-scale=1"/>. I think this went wrong when i converted this project to a node.js server. When added this meta tag i had to change the WHOLE CSS and it took me forever because all the sizing was messed up.
-- <img src="../images/Middel 1.png" alt="logo" width="100" height="100”>, put 2 dots before /images instead of 1 because at 1 page he couldn't find that img. 
-- Changed the Imgs to webp and as a fallback i put the png. This way the images are less big in loading size.
+- I put the img sizing also in the html, which improved performance.
+- Added a `<meta name="theme-color" content="#4285f4"/>` in all my html.
+- Weirdly i forgot the `<meta name="viewport" content="width=device-width, initial-scale=1"/>` I think this went wrong when i converted this project to a node.js server. When added this meta tag, i had to change the WHOLE CSS and it took me forever because all the sizing was messed up.
+- `<img src="../images/Middel 1.png" alt="logo" width="100" height="100”>` I put 2 dots before /images instead of 1 because at 1 page he couldn't find that img. 
+- Changed the Imgs to webp and as a fallback i put the png. This way the images are less big in loading size:
+``` html
+<picture>
+        <source srcset="../images/Middel-1.webp" type="image/webp">
+        <source srcset="../images/Middel 1.png" type="image/png">
+        <img src="../images/Middel 1.png" alt="logo" width="100" height="100">
+</picture>
+```
 
 Also what really helped in perfomance was running the app in incognito so there were no extensions that could affect the perfomance. I noticed the performance really went up after this! :)
 
 ![performance](https://github.com/Hilal-Tapan/progressive-web-apps-2223/blob/main/public/images/perfect-performance.png)
+
+Yay!! 100%.
 
 
 ## Hosting 
