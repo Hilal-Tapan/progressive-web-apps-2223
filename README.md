@@ -512,6 +512,8 @@ The goal of optimizing the critical rendering path is to minimize the time it ta
 This is important for improving the user experience and for ensuring that your website or application performs well, especially on slower devices and networks.
 
 ### Things i've improved
+![performance](https://github.com/Hilal-Tapan/progressive-web-apps-2223/blob/main/public/images/goede-performance!.png)
+
 - Added title tag in all html, apparently i keep forgetting to do this.
 - Logo sizing changed to original. The logo was very blurry, that was because i apparently used different sizing in my styling. After changing this the logo was very clear again.
 - Img sizing also put in html.
@@ -520,16 +522,13 @@ This is important for improving the user experience and for ensuring that your w
 - <img src="../images/Middel 1.png" alt="logo" width="100" height="100”>, put 2 dots before /images instead of 1 because at 1 page he couldn't find that img. 
 - Changed the Imgs to webp and as a fallback i put the png. This way the images are less big in loading size.
 
+Also what really helped in perfomance was running the app in incognito so there were no extensions that could affect the perfomance. I noticed the performance really went up after this! :)
+
+![performance](https://github.com/Hilal-Tapan/progressive-web-apps-2223/blob/main/public/images/perfect-performance.png)
+
+
 ## Hosting 
-
-
-
-## must haves
-* client- server rendering, 
-* an activity diagram including the Service Worker and a list of enhancements to optimize the critical render path implemented your app.
-* Critical render path You’ve enhanced the critical render path for a better runtime or percieved performance in multiple ways and have described how you managed to do this.
-* Service Worker You’ve implemented a usefull Service Worker and show it’s working in an activity diagram.
-
+The last part of this assignment is putting the app online. For this I used a free online web server that can host my web app, it's called railway.app. With railway I can link my github account and every time I commit it is updated on railway as well!
 
 
 ## Sources
@@ -539,23 +538,10 @@ This is important for improving the user experience and for ensuring that your w
 * https://web.dev/learn/pwa/service-workers/ 
 * https://expressjs.com/en/starter/hello-world.html 
 * https://www.npmjs.com/package/express-minify-html 
-* 
-
-## Goals
-After finishing this program you can:
-- _deal with server side rendering;_
-- _implement a Service Worker;_
-- _enhance the critical render path for a better runtime or percieved performance._
-
-## Grading
-Your efforts will be graded using a single point rubric (see below). You will have to pass the criterion (centre column) to pass the course. During the test you will be consulted and will be given feedback on things we think deficient and things we think are an improvement on the criterion.
-
-| Deficiency | Criterion | Improvement |
-|:--|:--|:--|
-|  | *Project* Your app is published and can be accessed using the browser. Your project is thoroughly documented in the `README.md` file in your repository. Included are an explanation of client- server rendering, an activity diagram including the Service Worker and a list of enhancements to optimize the critical render path implemented your app. |  |
-|  |*Serverside rendering* You’ve implemented serverside rendering and have articulated how it works and why you should want it. |  |
-|  |*Service Worker* You’ve implemented a usefull Service Worker and show it’s working in an activity diagram. |  |
-|  |*Critical render path* You’ve enhanced the critical render path for a better runtime or percieved performance in multiple ways and have described how you managed to do this. |  |
+* https://railway.app/
+* https://sass-lang.com/guide
+* https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+* https://www.youtube.com/watch?v=4XT23X0Fjfk&list=PL4cUxeGkcC9gTxqJBcDmoi5Q2pzDusSL7&ab_channel=TheNetNinja 
 
 
 
