@@ -501,10 +501,24 @@ const assets = [
 This array is used later in the service worker code to cache these assets so that they can be served to users even when they are offline. When a user visits the website for the first time, the service worker will fetch these assets and store them in the cache named site-static. Then, when the user visits the website again (even if they are offline), the service worker can serve these cached assets from the cache, providing a faster and more reliable experience for the user.
 
 ## Activity Diagram
+![flowchart](https://github.com/Hilal-Tapan/progressive-web-apps-2223/blob/main/public/images/flow.png)
+
+![activity-diagram-sw](https://github.com/Hilal-Tapan/progressive-web-apps-2223/blob/main/public/images/activity-diagram-sw.jpg)
 
 
 ## Critical rendering path
+The critical rendering path is the sequence of steps that a web browser goes through to convert HTML, CSS, and JavaScript code into a rendered page that the user can see and interact with.
+The goal of optimizing the critical rendering path is to minimize the time it takes for the browser to render the content and display it to the user. By reducing the number of resources the user's perception of page load time can be improved.
+This is important for improving the user experience and for ensuring that your website or application performs well, especially on slower devices and networks.
 
+### Things i've improved
+- Added title tag in all html, apparently i keep forgetting to do this.
+- Logo sizing changed to original. The logo was very blurry, that was because i apparently used different sizing in my styling. After changing this the logo was very clear again.
+- Img sizing also put in html.
+- Added a <meta name="theme-color" content="#4285f4"/>. 
+- Weirdly i forgot the <meta name="viewport" content="width=device-width, initial-scale=1"/>. I think this went wrong when i converted this project to a node.js server. When added this meta tag i had to change the WHOLE CSS and it took me forever because all the sizing was messed up.
+- <img src="../images/Middel 1.png" alt="logo" width="100" height="100”>, put 2 dots before /images instead of 1 because at 1 page he couldn't find that img. 
+- Changed the Imgs to webp and as a fallback i put the png. This way the images are less big in loading size.
 
 ## Hosting 
 
