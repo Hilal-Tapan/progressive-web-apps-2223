@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const minifyHTML = require('express-minify-html');
 var compression = require('compression')
+let options = { maxAge: '2y'}
 
 // Create an instance of Express
 const app = express();
@@ -11,10 +12,14 @@ const app = express();
 const port = 3000;
 
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.static('public', options));
 
 // Serve static files from the "public" directory using the "/public" URL root
 app.use('/public', express.static(__dirname + '/public/'));
+
+// compression
+app.use(compression());
+
 
 // Minify HTML responses using the Express-Minify-HTML middleware
 app.use(minifyHTML({
@@ -29,8 +34,6 @@ app.use(minifyHTML({
         minifyJS:                  true
     }
 }));
-
-app.use(compression());
 
 // Set the view engine to EJS
 app.set("view engine", "ejs");
