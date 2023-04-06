@@ -2,6 +2,7 @@
 const express = require('express');
 const axios = require('axios');
 const minifyHTML = require('express-minify-html');
+var compression = require('compression')
 
 // Create an instance of Express
 const app = express();
@@ -28,6 +29,8 @@ app.use(minifyHTML({
         minifyJS:                  true
     }
 }));
+
+app.use(compression());
 
 // Set the view engine to EJS
 app.set("view engine", "ejs");
